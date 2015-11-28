@@ -1,0 +1,49 @@
+
+<html lang="en">
+<head>
+<!--<link rel="stylesheet" href="https://resources/demos/style.css">!-->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <meta charset="utf-8">
+  <title>text demo</title>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>	  
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+</head>
+<body>
+ 
+<p><b>Test</b> Paragraph.</p>
+<p></p>
+
+<div id="filter">
+	<div>From: <input type="text" id="date_from"></div>
+	<div>Till: <input type="text" id="date_till"></div>
+</div>
+
+
+<!--<table id="photo_listing"></table>!-->
+<div id="body">
+	<div id="photo_listing"></div>
+	 
+	<script>
+
+	$(function() {
+	    $( "#date_from" ).datepicker();
+	 });
+
+	$(function() {
+	    $( "#date_to" ).datepicker();
+	 });
+
+	$("#photo_listing").append("<div id=\"photo\"></div>");
+
+	//var str=$("#b").text()
+	//alert(str);
+	//$( "p:last" ).html( str );
+	</script>
+	 
+</div>
+<div id="info">
+<!--<div>From: <input type="text" id="date_from"></div>
+<div>Till: <input type="text" id="date_till"></div>!-->
+</div>	
+</body>
+</html>
