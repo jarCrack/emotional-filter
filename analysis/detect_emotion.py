@@ -38,7 +38,7 @@ else:
 		# compute value with smallest angular distance
 
 		difs=abs(np.arange(0,360,45)-float(deg))
-		best=difs.argmin()
+			best=difs.argmin()
 		if(360.-float(deg)<difs.min()):
 		    best=0
 

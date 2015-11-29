@@ -2,12 +2,10 @@ import java.util.*;
 
 public class PicAnalyzer
 {
-	public PicAnalyzer()
-	{
-		String[] emotions={"pleased","excited","aroused","distressed","miserable","depressed","sleepy","relaxed"};
 
-		double[] arousals={1.,2.,3.};
-		double[] valances={-1.,-2.,-3.};
+	public void analyze(double[] arousals,double[] valances){
+		
+		String[] emotions={"pleased","excited","aroused","distressed","miserable","depressed","sleepy","relaxed"};	
 
 		double arousal_tot=0.;
 		double valance_tot=0.;
@@ -40,12 +38,20 @@ public class PicAnalyzer
 		}
 		if(360-deg<min_val)
 			min_idx=0;
-		System.out.println(emotions[min_idx]);
-	
-	
-
 		
+				
 
+
+		System.out.println(emotions[min_idx]);
+	}
+
+	
+	public PicAnalyzer()
+	{
+
+		double[] arousals={4.};
+		double[] valances={0.};
+		analyze(arousals,valances);
 	}
 	public static void main(String[] args)
 	{

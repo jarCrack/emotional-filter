@@ -116,6 +116,9 @@ emotions=new Array(["pleased","excited","aroused","distressed","miserable","depr
 
 
 
+
+
+
 chart.render();
 
 

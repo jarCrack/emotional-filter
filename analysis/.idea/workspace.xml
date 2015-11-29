@@ -42,7 +42,7 @@
         <entry file="file://$PROJECT_DIR$/detect_emotion.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.5185811">
-              <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+              <caret line="40" column="12" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -478,7 +478,7 @@
     <entry file="file://$PROJECT_DIR$/detect_emotion.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5185811">
-          <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+          <caret line="40" column="12" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
