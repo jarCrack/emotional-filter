@@ -64,7 +64,7 @@
 								legendMarkerType: "circle",
 								markerColor:"#4682B4",
 								legendMarkerColor: "grey",
-								toolTipContent: "<span style='\"'color: {color};'\"'><strong>{emotion}</strong></span><br/><br/><p><a href=javascript:alert(1)><img src='\"'{imgurl}'\"' width=300 height=300></img></a></p><div id=tag_list>{tags}</div>",
+								toolTipContent: "<span style='\"'color: {color};'\"'><strong>{emotion}</strong></span><br/><strong>Arousal</strong> {x}<br/> <strong>Valance</strong> {y}<br/><p><a href={imgurl}><img src='\"'{imgurl}'\"' width=300 height=300></img></a></p><div id=tag_list>{tags}</div>",
 								dataPoints: [
 
 								]
@@ -110,9 +110,7 @@
 						name: "Photo " + i,
 						imgurl: item.imageUrl,
 						tags: tags_str,
-						emotion: item.emotion,
-						imgurl_hd:item.imageUrl.replace("g1_thumb_square","g1_hd")
-
+						emotion: item.emotion
 					});
 					//$("#expressive_pics").html("hi")
 					/*if(rank<10)
@@ -247,7 +245,7 @@
               </div>
             </div>
         -->
-		<div class='tlcontainer large-10 columns row' data-date='2015-11-29'>
+		<div class='tlcontainer large-10 columns row' data-date='2012-03-12'>
 			<div id="chartContainer" style="height: 800px; width: 100%;"></div>
 			<div id="expressive_pics"></div>
 		</div>
