@@ -2,6 +2,7 @@ package photohack.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -29,6 +30,8 @@ public class MainController {
 	
 	@Autowired
 	private TagDao tagDao;
+	
+	
 
   @RequestMapping("/update")
   @ResponseBody
@@ -36,11 +39,35 @@ public class MainController {
 	service.execute();
     return "Update done!";
   }
-  
+
+  @CrossOrigin
   @RequestMapping("/photos/by-emotion/{emotion}")
   public List<Photo> getPhotos(@PathVariable String emotion) {
 	  List<Photo> photos = new ArrayList<>();
 	  for(Image image : imageDao.findByEmotion(emotion)) {
+		  Photo photo = new Photo();
+		  photo.imageUrl = image.getImageUrl();
+		  photo.score = image.getScore();
+		  List<String> tags = new ArrayList<>();
+		  for(Tag tag : image.getTags()) {
+			  tags.add(tag.getText());
+		  }
+		  photo.date = image.getCreatedDate();
+		  photo.tags = (String[]) tags.toArray(new String[tags.size()]);
+		  photo.arousal = image.getArousal();
+		  photo.valence = image.getValence();
+		  photo.lenght = image.getLenght();
+		  photo.emotion = image.getEmotion();
+		  photos.add(photo);
+	  }
+	  return photos;
+  }
+  
+  @RequestMapping("/photos")
+  @CrossOrigin
+  public List<Photo> getAllPhotos() {
+	  List<Photo> photos = new ArrayList<>();
+	  for(Image image : imageDao.findAll()) {
 		  Photo photo = new Photo();
 		  photo.imageUrl = image.getImageUrl();
 		  photo.score = image.getScore();
