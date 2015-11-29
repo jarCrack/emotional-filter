@@ -30,7 +30,7 @@ public class MainController {
 	@Autowired
 	private TagDao tagDao;
 
-  @RequestMapping("/")
+  @RequestMapping("/update")
   @ResponseBody
   public String index() {
 	service.execute();
@@ -40,7 +40,7 @@ public class MainController {
   @RequestMapping("/photos/by-emotion/{emotion}")
   public List<Photo> getPhotos(@PathVariable String emotion) {
 	  List<Photo> photos = new ArrayList<>();
-	  for(Image image : imageDao.findAll()) {
+	  for(Image image : imageDao.findByEmotion(emotion)) {
 		  Photo photo = new Photo();
 		  photo.imageUrl = image.getImageUrl();
 		  photo.score = image.getScore();
@@ -48,9 +48,12 @@ public class MainController {
 		  for(Tag tag : image.getTags()) {
 			  tags.add(tag.getText());
 		  }
+		  photo.date = image.getCreatedDate();
 		  photo.tags = (String[]) tags.toArray(new String[tags.size()]);
-		  photo.arousal = (Math.random() * 10) -5;
-		  photo.valence = (Math.random() * 10) -5;
+		  photo.arousal = image.getArousal();
+		  photo.valence = image.getValence();
+		  photo.lenght = image.getLenght();
+		  photo.emotion = image.getEmotion();
 		  photos.add(photo);
 	  }
 	  return photos;

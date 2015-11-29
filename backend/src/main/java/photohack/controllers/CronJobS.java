@@ -9,6 +9,8 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,21 +39,25 @@ public class CronJobS {
 	private NarrativePhotoUploader uploader;
 	
 	@Autowired
-	private TaggingSearchThread thread;
-	
-	@Autowired
 	private EmotionTaggingTask emotion;
 	
+	@Autowired
+	private EmotionImageTask emotionImageTask;
+	
 	public void execute() {
+		boolean taggingEnabled = false;
+		ExecutorService executor = Executors.newFixedThreadPool(10);
 		uploader.run();
 		Iterable<Image> images = imageDao.findByScoreNull();
 		if(images != null)
 		for(Image image : images) {
-			if(image.getScore() != null) {
-				thread.run(image);
+			if(image.getScore() == null && taggingEnabled) {
+				TaggingSearchThread thread = new TaggingSearchThread(image, tagDao, imageDao);
+				executor.execute(thread);
 			}
 		}
 		emotion.run();
+		emotionImageTask.run();
 	}
 	
 }

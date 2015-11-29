@@ -32,19 +32,32 @@ public class NarrativePhotoUploader{
 		try {
             // get URL content
 
-        	DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssX");
-        	String nowAsString = df.format(new Date());
+        	DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        	Image fromimage = null;
+        	for(Image im : imageDao.findByEmotionNullOrderByCreatedDateDesc()) {
+        		fromimage = im;
+        		break;
+        	}
+        	Date fromdate;
+        	if(fromimage != null) {
+        		fromdate = fromimage.getCreatedDate();
+        	} else {
+        		fromdate = new Date();
+        	}
+        	String nowAsString = df.format(fromdate);
         	System.out.println(nowAsString);
         
             String a="https://narrativeapp.com/api/v2/photos/"+
             "?taken_at_local__gte="+nowAsString+
             "&limit=1000";
             
+            System.out.println(a);
+            
         	URL url = new URL(a);
         	HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
         	
             // request grant:
-            con.setRequestProperty("Authorization","Bearer Z6tJFZJt8lbUAoJ8IDGiShkr60iHPU");
+            con.setRequestProperty("Authorization","Bearer hz8Tr9PaJRU6C7m1TAmtzL1W7rqBut");
             con.setRequestProperty("Accept", "application/json");
             // open the stream and put it into BufferedReader
             BufferedReader br = new BufferedReader(
@@ -56,7 +69,8 @@ public class NarrativePhotoUploader{
             	result+=inputLine+System.getProperty("line.separator");
             }
             br.close();
-           
+
+        	df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssX");
             JSONObject obj = new JSONObject(result);
             JSONArray results= obj.getJSONArray("results");
             for(int j=0;j<results.length();j++){
