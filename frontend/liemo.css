@@ -1,0 +1,42 @@
+Presentation Pitch
+
+Slide 1
+"Liemo - discover your emotions"
+
+Slide 2
+	- the idea
+		- "find the emotion of a picture"
+		- pictures can associate with something
+			- sunset = romantic
+			- baby = stressful
+Slide 3
+	- What is Liemo
+		- webservice
+			- autmaticly tag
+			- stores entities from eyeem vision (score, date, tags, location) in Liemo Database
+			- get emotion
+			- full REST implemented
+			- 
+		- exp. Narrative as picture service
+		- Russel Emotion Circle
+			- different vectors
+			- 
+		- edit your pictures with adobe
+		
+Slide 4
+	- Liemo use
+		- eyeem (for taging)
+		- narrative (get pictures)
+		- emotion vector csv
+		- adobe
+		
+Slide 5
+"Demo time"
+
+Slide 6
+	- but there is one more thing
+		(- account handling)
+		- animation over days
+		- upload pictures from any services or hardware to tag fotos and get the emotion
+		- sort Liemo tag pictures by score, date, tag, location, 
+		- combine different tag services to get more or an average for tags
