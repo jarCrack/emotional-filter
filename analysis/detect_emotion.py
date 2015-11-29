@@ -5,8 +5,8 @@ import sys
 
 
 
-if(len(sys.argv)<2):
-	print "Please input tag"
+if(len(sys.argv)<3):
+	print "Please input tag and db file"
 else:
 	try:
 		#print sys.argv[1]
@@ -18,7 +18,7 @@ else:
 
 		#scan csv
 
-		df=pandas.read_csv("ratings.csv")
+		df=pandas.read_csv(sys.argv[2])
 
 		#print df
 		entry=df[df["Word"]==word]
