@@ -2,7 +2,7 @@ from textblob import TextBlob as tb
 from textblob.sentiments import NaiveBayesAnalyzer
 import nltk
 
-        
+
 
 nltk.download()
 

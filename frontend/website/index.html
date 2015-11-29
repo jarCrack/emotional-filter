@@ -9,9 +9,22 @@
 	<link rel="stylesheet" type="text/css" href="css/foundation.css">
 
 	<!-- CANVAS JOERN -->
+	<script type="text/javascript" src="http://feather.aviary.com/imaging/v2/editor.js"></script>
 	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
 
+
+		function openimg(imgurl)
+		{
+				//alert(imgurl)
+				$("#phantom").attr("src",imgurl);
+
+
+				featherEditor.launch({
+					image:$("#phantom")	,
+					url: $("#phantom").src
+				});
+		}
 
 		function sortResults(node,prop, asc) {
 			node = node.sort(function(a, b) {
@@ -64,12 +77,13 @@
 								legendMarkerType: "circle",
 								markerColor:"#4682B4",
 								legendMarkerColor: "grey",
-								toolTipContent: "<span style='\"'color: {color};'\"'><strong>{emotion}</strong></span><br/><br/><p><a href=javascript:alert(1)><img src='\"'{imgurl}'\"' width=300 height=300></img></a></p><div id=tag_list>{tags}</div>",
+								toolTipContent: "<span style='\"'color: {color};'\"'><strong>{emotion}</strong></span><br/><br/><p><a href=javascript:openimg('\"'{imgurl}'\"')><img src='\"'{imgurl}'\"' width=300 height=300></img></a></p><div id=tag_list>{tags}</div>",
 								dataPoints: [
 
 								]
 							}
 						]
+
 					});
 
 //obj=jQuery.getJSON("http://192.168.2.84:8080/photos");
@@ -111,7 +125,7 @@
 						imgurl: item.imageUrl,
 						tags: tags_str,
 						emotion: item.emotion,
-						imgurl_hd:item.imageUrl.replace("g1_thumb_square","g1_hd")
+						imgurl_hd:item.imageUrl//.replace("g1_thumb_square","g1_hd")
 
 					});
 					//$("#expressive_pics").html("hi")
@@ -135,7 +149,15 @@
 				chart.render();
 
 			});
+
+
+
 		}
+		var featherEditor = new Aviary.Feather({
+			apiKey:'1234567',
+			onSave: function (imageID, newURL) {
+				featherEditor.close();
+			}});
 	</script>
 	<script type="text/javascript" src="assets/canvasjs.min.js"></script>
 
@@ -268,6 +290,8 @@
 	$('div.tlcontainer').simpleTimeline();
 
 </script>
+
+<img style="display: none" src="https://app-cdnandbuckets-privatebucket-1nx6pcmahiqo5.s3.amazonaws.com/private/users/b925c35377f548e890be5befb84cb572/renders/g1_thumb_square/e928220e89064ee2bee606188980a362.jpg" id="phantom"/>
 
 <script type="text/javascript">
 
