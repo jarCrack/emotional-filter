@@ -39,7 +39,7 @@ public class PicAnalyzer
 		if(360-deg<min_val)
 			min_idx=0;
 		
-		
+				
 
 
 		System.out.println(emotions[min_idx]);
