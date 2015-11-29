@@ -1,11 +1,18 @@
 <html>
 <head>  
 
-<link href="assets/css/simple-timeline.css" rel="stylesheet">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
 <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
   <script type="text/javascript">
+
+
+function sortResults(node,prop, asc) {
+    node = node.sort(function(a, b) {
+        if (asc) return (a[prop] > b[prop]) ? 1 : ((a[prop] < b[prop]) ? -1 : 0);
+        else return (b[prop] > a[prop]) ? 1 : ((b[prop] < a[prop]) ? -1 : 0);
+    });
+    
+}
+
   window.onload = function () {
     var chart = new CanvasJS.Chart("chartContainer",
     {
@@ -74,42 +81,42 @@ $.ajax({
         });*/
 
 
-obj=jQuery.parseJSON("[{\"imageUrl\":\"https://app-cdnandbuckets-privatebucket-1nx6pcmahiqo5.s3.amazonaws.com/private/users/b925c35377f548e890be5befb84cb572/renders/g1_hd/d49d62efcae140c1973abc221c916c9f.jpg\",\"score\":0.4768772764081197,\"arousal\":3.025621270768399,\"valence\":-3.7730110475603396,\"tags\":[\"indoors\",\"auto post production filter\",\"transfer print\",\"window\",\"home interior\",\"wall\",\"door\",\"glass - material\",\"domestic room\",\"transparent\",\"wall - building feature\",\"simplicity\",\"mirror\",\"open\",\"glass\",\"contemporary\",\"home\",\"urban\",\"control\",\"context\"]},{\"imageUrl\":\"https://app-cdnandbuckets-privatebucket-1nx6pcmahiqo5.s3.amazonaws.com/private/users/b925c35377f548e890be5befb84cb572/renders/g1_hd/da6c44402f524d199c46e2a8bb91002f.jpg\",\"score\":null,\"arousal\":1.7078523938041084,\"valence\":-1.8599924321254955,\"tags\":[]},{\"imageUrl\":\"https://app-cdnandbuckets-privatebucket-1nx6pcmahiqo5.s3.amazonaws.com/private/users/b925c35377f548e890be5befb84cb572/renders/g1_hd/db2419c6dd4048d194a32079583cac02.jpg\",\"score\":null,\"arousal\":4.735704994983754,\"valence\":-2.4298232716897705,\"tags\":[]},{\"imageUrl\":\"https://app-cdnandbuckets-privatebucket-1nx6pcmahiqo5.s3.amazonaws.com/private/users/b925c35377f548e890be5befb84cb572/renders/g1_hd/db760fb6a51c4ec7be17341d636aa412.jpg\",\"score\":null,\"arousal\":2.959759108890607,\"valence\":-0.4792881072550603,\"tags\":[]},{\"imageUrl\":\"https://app-cdnandbuckets-privatebucket-1nx6pcmahiqo5.s3.amazonaws.com/private/users/b925c35377f548e890be5befb84cb572/renders/g1_hd/df62953fb1c54e75ba18772f7f9d27be.jpg\",\"score\":null,\"arousal\":1.6469492094437408,\"valence\":4.519850142106419,\"tags\":[]},{\"imageUrl\":\"https://app-cdnandbuckets-privatebucket-1nx6pcmahiqo5.s3.amazonaws.com/private/users/b925c35377f548e890be5befb84cb572/renders/g1_hd/e42b25772dc647eba143c1851f2a0855.jpg\",\"score\":0.13211162367756746,\"arousal\":3.444676973274401,\"valence\":2.1028685443174187,\"tags\":[\"auto post production filter\",\"transfer print\",\"indoors\",\"window\",\"home interior\",\"sitting\",\"lifestyles\",\"glass - material\",\"real people\",\"front view\",\"young adult\",\"transparent\",\"waist up\",\"young men\",\"contemplation\",\"alone\",\"lifestyles\",\"person\",\"togetherness\"]},{\"imageUrl\":\"https://app-cdnandbuckets-privatebucket-1nx6pcmahiqo5.s3.amazonaws.com/private/users/b925c35377f548e890be5befb84cb572/renders/g1_hd/e4e2ccbbd9264814b9b00f9276ef63d4.jpg\",\"score\":6.84715511684697E-4,\"arousal\":0.6721636142156884,\"valence\":2.3265717387676244,\"tags\":[\"indoors\",\"window\",\"home interior\",\"auto post production filter\",\"transfer print\",\"wall\",\"glass - material\",\"transparent\",\"door\",\"glass\",\"curtain\",\"wall - building feature\",\"domestic room\",\"one person\",\"open\",\"occupation\",\"home\",\"contemporary\",\"business\",\"contemplation\"]},{\"imageUrl\":\"https://app-cdnandbuckets-privatebucket-1nx6pcmahiqo5.s3.amazonaws.com/private/users/b925c35377f548e890be5befb84cb572/renders/g1_hd/e6eed5e5e21e4b1eb2bd5caf43afdc62.jpg\",\"score\":null,\"arousal\":2.5847602446277627,\"valence\":-3.8501006128127524,\"tags\":[]},{\"imageUrl\":\"https://app-cdnandbuckets-privatebucket-1nx6pcmahiqo5.s3.amazonaws.com/private/users/b925c35377f548e890be5befb84cb572/renders/g1_hd/e928220e89064ee2bee606188980a362.jpg\",\"score\":0.04515108805863233,\"arousal\":4.281137677175774,\"valence\":-4.971198178949267,\"tags\":[\"indoors\",\"auto post production filter\",\"transfer print\",\"home interior\",\"sitting\",\"window\",\"lifestyles\",\"casual clothing\",\"real people\",\"young adult\",\"young men\",\"togetherness\",\"front view\",\"waist up\",\"occupation\",\"happiness\",\"contemplation\",\"confidence\",\"togetherness\"]},{\"imageUrl\":\"https://app-cdnandbuckets-privatebucket-1nx6pcmahiqo5.s3.amazonaws.com/private/users/b925c35377f548e890be5befb84cb572/renders/g1_hd/f5c07a5c9e6349f3a9cded6198726c5b.jpg\",\"score\":null,\"arousal\":0.07505245347636968,\"valence\":4.544704306403601,\"tags\":[]},{\"imageUrl\":\"https://app-cdnandbuckets-privatebucket-1nx6pcmahiqo5.s3.amazonaws.com/private/users/b925c35377f548e890be5befb84cb572/renders/g1_hd/f9422f981f43486e8a7918de30d6bc17.jpg\",\"score\":0.0291126349634776,\"arousal\":-0.1825140685129707,\"valence\":1.7141033685764722,\"tags\":[\"indoors\",\"window\",\"home interior\",\"auto post production filter\",\"transfer print\",\"sitting\",\"glass - material\",\"door\",\"lifestyles\",\"young adult\",\"real people\",\"transparent\",\"wall\",\"casual clothing\",\"occupation\",\"happiness\",\"business\",\"confidence\",\"home\"]}]");
+obj=jQuery.parseJSON("[{\"imageUrl\":\"https://app-cdnandbuckets-privatebucket-1nx6pcmahiqo5.s3.amazonaws.com/private/users/b925c35377f548e890be5befb84cb572/renders/g1_hd/d49d62efcae140c1973abc221c916c9f.jpg\",\"score\":0.4768772764081197,\"arousal\":3.025621270768399,\"valence\":-3.7730110475603396,\"tags\":[\"indoors\",\"auto post production filter\",\"transfer print\",\"window\",\"home interior\",\"wall\",\"door\",\"glass - material\",\"domestic room\",\"transparent\",\"wall - building feature\",\"simplicity\",\"mirror\",\"open\",\"glass\",\"contemporary\",\"home\",\"urban\",\"control\",\"context\"]},{\"imageUrl\":\"https://app-cdnandbuckets-privatebucket-1nx6pcmahiqo5.s3.amazonaws.com/private/users/b925c35377f548e890be5befb84cb572/renders/g1_hd/da6c44402f524d199c46e2a8bb91002f.jpg\",\"score\":null,\"arousal\":1.7078523938041084,\"valence\":-1.8599924321254955,\"tags\":[]},{\"imageUrl\":\"https://app-cdnandbuckets-privatebucket-1nx6pcmahiqo5.s3.amazonaws.com/private/users/b925c35377f548e890be5befb84cb572/renders/g1_hd/db2419c6dd4048d194a32079583cac02.jpg\",\"score\":null,\"arousal\":4.735704994983754,\"valence\":-2.4298232716897705,\"tags\":[]},{\"imageUrl\":\"https://app-cdnandbuckets-privatebucket-1nx6pcmahiqo5.s3.amazonaws.com/private/users/b925c35377f548e890be5befb84cb572/renders/g1_hd/db760fb6a51c4ec7be17341d636aa412.jpg\",\"score\":null,\"arousal\":2.959759108890607,\"valence\":-0.4792881072550603,\"tags\":[]},{\"imageUrl\":\"https://app-cdnandbuckets-privatebucket-1nx6pcmahiqo5.s3.amazonaws.com/private/users/b925c35377f548e890be5befb84cb572/renders/g1_hd/df62953fb1c54e75ba18772f7f9d27be.jpg\",\"score\":null,\"arousal\":1.6469492094437408,\"valence\":4.519850142106419,\"tags\":[]},{\"imageUrl\":\"https://app-cdnandbuckets-privatebucket-1nx6pcmahiqo5.s3.amazonaws.com/private/users/b925c35377f548e890be5befb84cb572/renders/g1_hd/e42b25772dc647eba143c1851f2a0855.jpg\",\"score\":0.13211162367756746,\"arousal\":3.444676973274401,\"valence\":2.1028685443174187,\"tags\":[\"auto post production filter\",\"transfer print\",\"indoors\",\"window\",\"home interior\",\"sitting\",\"lifestyles\",\"glass - material\",\"real node\",\"front view\",\"young adult\",\"transparent\",\"waist up\",\"young men\",\"contemplation\",\"alone\",\"lifestyles\",\"person\",\"togetherness\"]},{\"imageUrl\":\"https://app-cdnandbuckets-privatebucket-1nx6pcmahiqo5.s3.amazonaws.com/private/users/b925c35377f548e890be5befb84cb572/renders/g1_hd/e4e2ccbbd9264814b9b00f9276ef63d4.jpg\",\"score\":6.84715511684697E-4,\"arousal\":0.6721636142156884,\"valence\":2.3265717387676244,\"tags\":[\"indoors\",\"window\",\"home interior\",\"auto post production filter\",\"transfer print\",\"wall\",\"glass - material\",\"transparent\",\"door\",\"glass\",\"curtain\",\"wall - building feature\",\"domestic room\",\"one person\",\"open\",\"occupation\",\"home\",\"contemporary\",\"business\",\"contemplation\"]},{\"imageUrl\":\"https://app-cdnandbuckets-privatebucket-1nx6pcmahiqo5.s3.amazonaws.com/private/users/b925c35377f548e890be5befb84cb572/renders/g1_hd/e6eed5e5e21e4b1eb2bd5caf43afdc62.jpg\",\"score\":null,\"arousal\":2.5847602446277627,\"valence\":-3.8501006128127524,\"tags\":[]},{\"imageUrl\":\"https://app-cdnandbuckets-privatebucket-1nx6pcmahiqo5.s3.amazonaws.com/private/users/b925c35377f548e890be5befb84cb572/renders/g1_hd/e928220e89064ee2bee606188980a362.jpg\",\"score\":0.04515108805863233,\"arousal\":4.281137677175774,\"valence\":-4.971198178949267,\"tags\":[\"indoors\",\"auto post production filter\",\"transfer print\",\"home interior\",\"sitting\",\"window\",\"lifestyles\",\"casual clothing\",\"real node\",\"young adult\",\"young men\",\"togetherness\",\"front view\",\"waist up\",\"occupation\",\"happiness\",\"contemplation\",\"confidence\",\"togetherness\"]},{\"imageUrl\":\"https://app-cdnandbuckets-privatebucket-1nx6pcmahiqo5.s3.amazonaws.com/private/users/b925c35377f548e890be5befb84cb572/renders/g1_hd/f5c07a5c9e6349f3a9cded6198726c5b.jpg\",\"score\":null,\"arousal\":0.07505245347636968,\"valence\":4.544704306403601,\"tags\":[]},{\"imageUrl\":\"https://app-cdnandbuckets-privatebucket-1nx6pcmahiqo5.s3.amazonaws.com/private/users/b925c35377f548e890be5befb84cb572/renders/g1_hd/f9422f981f43486e8a7918de30d6bc17.jpg\",\"score\":0.0291126349634776,\"arousal\":-0.1825140685129707,\"valence\":1.7141033685764722,\"tags\":[\"indoors\",\"window\",\"home interior\",\"auto post production filter\",\"transfer print\",\"sitting\",\"glass - material\",\"door\",\"lifestyles\",\"young adult\",\"real node\",\"transparent\",\"wall\",\"casual clothing\",\"occupation\",\"happiness\",\"business\",\"confidence\",\"home\"]}]");
+
+
+sortResults(obj,"arousal",false);
+
+
+	rank=0
+	content=""
 
 $.each(obj, function(i, item) {
+	rank++;
 	tags_json=item.tags
 	tags_str="";
 	$.each(tags_json,function(j,tag){
 	tags_str+="#"+tag+"<br>"
 	});
 	chart.options.data[0].dataPoints.push({x:item.arousal*10,y:item.valence*10,z:1,name:"Photo "+i,imgurl:item.imageUrl,tags:tags_str});  
+	//$("#expressive_pics").html("hi")
+
+	if(rank<10)
+		content+="<p><img src="+item.imgurl+">:"+Math.floor(item.arousal)+"<p>"
+
+	
+	
 
 });
 
-
+	$("#expressive_pics").html(content)
 //document.writeln(obj[0].imageUrl);
 
+// draw the emotions
+emotions=new Array(["pleased","excited","aroused","distressed","miserable","depressed","sleepy","relaxed"]);
 
-/*
-$.getJSON("/sample.json", function( data ) {
-  var items = [];
-  $.each( data, function( key, val ) {
-    document.writeln(key);
-  });
 
-});
-*/
- /*
-  $( "<ul/>", {
-    "class": "my-new-list",
-    html: items.join( "" )
-  }).appendTo( "body" );
-*/
 
-/*
-for(i=0;i<40;i++)
-	chart.options.data[0].dataPoints.push({x:Math.random()*10,y:Math.random()*10,z:Math.random()*10,name:"Photo "+i,});
-*/
+
 
 
 chart.render();
@@ -149,50 +156,13 @@ chart.render();
 <body>
 
 
-
-	<!-- add the time line !-->
-	<button class="yselect" id="yprev">&lt;</button>
-	<p class="currentYear">0</p>
-	<button class="yselect" id="ynext">&gt;</button>
-	<div class="<a href="http://www.jqueryscript.net/time-clock/">date</a>Right">
-	<p class="currentDate">0</p>
-	</div>
-
-	<div id="timelineWrap">
-	<div class="months">
-	<div class="monthLine firstlast" style="left: 0px"></div>
-	<div class="monthLine" style="left: 70.833px"></div>
-	<div class="monthLine" style="left: 140.666px"></div>
-	<div class="monthLine" style="left: 210.999px"></div>
-	<div class="monthLine" style="left: 281.332px"></div>
-	<div class="monthLine" style="left: 351.665px"></div>
-	<div class="monthLine" style="left: 421.998px"></div>
-	<div class="monthLine" style="left: 492.331px"></div>
-	<div class="monthLine" style="left: 562.664px"></div>
-	<div class="monthLine" style="left: 632.997px"></div>
-	<div class="monthLine" style="left: 703.33px"></div>
-	<div class="monthLine" style="left: 773.663px"></div>
-	<div class="monthLine firstlast" style="left: 849px"></div>
-	</div>
-	</div>
 	
-	<div id="contentWrap">
-	  <div class="dbuttons">
-	    <button class="dselect" id="dprev"><</button>
-	  </div>
-	  <div class="tlcontainer" data-date="2012-03-12"> Event 1 </div>
-	  <div class="tlcontainer" data-date="2012-08-01"> Event 2 </div>
-	  <div class="tlcontainer" data-date="2012-10-08"> Event 3 </div>
-	  <div class="dbuttons">
-	    <button class ="dselect" id="dnext">></button>
-	  </div>
-	</div>
-
-
-
   <div id="chartContainer" style="height: 300px; width: 100%;">
   </div>
 
+  <div id="expressive_pics">
+  </div>
+<!--
 <script language="javascript">
 $('.tlcontainer').simpleTimeline({
 
@@ -207,8 +177,9 @@ months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August
 
 });
 
-</script>
+</script>!-->
 <script src="assets/simple-timeline.jquery.js"></script>
+
 
 </body>
 </html>
