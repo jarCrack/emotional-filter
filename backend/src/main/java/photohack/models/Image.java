@@ -48,6 +48,9 @@ public class Image {
   
   private String emotion;
   
+  private Double lenght;
+
+
 
 @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "image_tag", joinColumns = { 
@@ -72,7 +75,15 @@ public class Image {
   	public void setValence(Double valence) {
   		this.valence = valence;
   	}
+  	
+  	public Double getLenght() {
+  		return lenght;
+  	}
 
+  	public void setLenght(Double lenght) {
+  		this.lenght = lenght;
+  	}
+  	
   	public String getEmotion() {
   		return emotion;
   	}

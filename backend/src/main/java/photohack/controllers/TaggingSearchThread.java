@@ -24,18 +24,21 @@ import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
-@Component
-public class TaggingSearchThread {
+public class TaggingSearchThread implements Runnable{
 
 	private Image image;
 	
-	@Autowired
 	private TagDao tagDao;
 
-	@Autowired
 	private ImageDao imageDao;
+	
+	public TaggingSearchThread(Image image, TagDao tagDao, ImageDao imageDao) {
+		this.image = image;
+		this.tagDao = tagDao;
+		this.imageDao = imageDao;
+	}
 	 
-	public void run(Image image) {
+	public void run() {
 		String urlString = image.getImageUrl();
 		try {
 			URL url = new URL(urlString);

@@ -9,4 +9,10 @@ public interface ImageDao extends CrudRepository<Image, String> {
 
 	Iterable<Image> findByScoreNull();
 
+	Iterable<Image> findByEmotion(String emotion);
+
+	Iterable<Image> findByEmotionNull();
+
+	Iterable<Image> findByEmotionNullOrderByCreatedDateDesc();
+
 }
