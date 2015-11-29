@@ -1,0 +1,23 @@
+login data narrative:
+
+susanna@famigliaferrari.it
+Sony15sf
+
+
+open-staging.getnarrative.com
+
+
+Client ID:
+
+FvRpWknj4RAbgE5QbWwPYyQpcj1xDdrKUDLahO8J
+
+Client secret:
+
+6CVs2zAVkVjwEt4t1vpCdbi6uRCa5DwsprNew9RxYMbwr1enFYtoM0JmrFH1l86ar7N2x6AcNyjsN06siUWbJSCnPriILYkCSMtcIAAdUxVVECPn2vFbXIw2BVX1zeAg
+
+https://app-cdnandbuckets-privatebucket-1nx6pcmahiqo5.s3.amazonaws.com/private/users/b925c35377f548e890be5befb84cb572/renders/g1_thumb_square/38e986b813904c95924ee73db5e8e4d8.jpg
+
+
+https://narrativeapp.com/api/v2/photos/?taken_at_local__gte=2015-10-01T10:00:00Z&limit=10
+
+iso 8601
