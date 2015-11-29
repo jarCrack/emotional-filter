@@ -1,5 +1,5 @@
 LIEMO - Life Emotion
-"find the emotion of a picture"
+"find most impressive moments of the day"
 
 what is Liemo
 	web service
