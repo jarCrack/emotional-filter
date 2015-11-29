@@ -96,20 +96,71 @@ chart.render();
 </script>
 <script type="text/javascript" src="assets/canvasjs.min.js"></script>
 
+<style>
+	#nav {
+		position: relative;
+		width: 100%;
+		height: 80px;
+		clear: both;
+	}
+	
+	.Logo {
+		float: left;
+		width: 100%;
+	}
+	
+	.Logo h1{
+		font-family: 'Open Sans Condensed';
+		font-size: 36px;
+		margin-left: 20px;
+		margin-top: 15px;
+		float: left;
+	}
+	
+	h2 {
+		font-family: 'Open Sans Condensed';
+		font-size: 21px;
+		margin-left: 45%;
+		margin-top: 5px;
+		float: left;		
+	}
+	
+	.Logo p {
+		margin-top: 32px;
+		margin-left: 80%;
+		margin-right: 10px;
+		font-family: 'Open Sans Condensed';
+		font-size: 12px;
+		float: left;
+	}
+	.Login img {	
+		margin-top: 5px;
+	}
+	hr {
+		border: solid #DDDDDD;
+	    border-width: 1px 0 0;
+    	clear: both;
+	    height: 0;
+	    margin: 0;
+	}
+</style>
+
 <!-- CANVAS END -->
 </head>
 
 <body>
-<!--	<div id="jquery-script-menu">-->
+<!-- Nav -->
 	<div id="nav">
-		<div class="Logo">Liemo</div>
-		<div class="Login">
+		<div class="Logo">
+			<h1>Liemo</h1>
+			<!-- <h2>Discover your emotions</h2> -->
 			<p>Daniel</p>
-			<img src="#">
+			<img width="25px" height="25px" style="margin-top: 28px;"src="assets/login.jpg">
 		</div>
 		<div class="jquery-script-clear"></div>
 	</div>
-<!-- <h1 style="margin:150px auto 30px auto; text-align:center">jQuery Simple-Timeline Plugin Demo</h1> -->
+<hr>	
+<h2>Discover your emotions</h2>
 	<div id='flash'>
 		<button class='yselect' id="yprev"><</button>
 	  	<p class='currentYear'>0</p>
@@ -134,7 +185,6 @@ chart.render();
 		<div class='monthLine firstlast' style="left: 849px"></div>
 	</div>
 </div>
-
 <!-- CONTENT -->
   <div id="contentWrap row">
     <div class="large-1 columns">
