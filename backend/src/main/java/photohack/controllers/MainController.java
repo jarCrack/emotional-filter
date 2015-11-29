@@ -19,6 +19,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+@CrossOrigin
 @RestController
 public class MainController {
 	
@@ -52,7 +53,7 @@ public class MainController {
 		  for(Tag tag : image.getTags()) {
 			  tags.add(tag.getText());
 		  }
-		  photo.date = image.getCreatedDate();
+		  //photo.date = image.getCreatedDate();
 		  photo.tags = (String[]) tags.toArray(new String[tags.size()]);
 		  photo.arousal = image.getArousal();
 		  photo.valence = image.getValence();
@@ -62,9 +63,9 @@ public class MainController {
 	  }
 	  return photos;
   }
-  
-  @RequestMapping("/photos")
+
   @CrossOrigin
+  @RequestMapping("/photos/all")
   public List<Photo> getAllPhotos() {
 	  List<Photo> photos = new ArrayList<>();
 	  for(Image image : imageDao.findAll()) {
@@ -75,15 +76,33 @@ public class MainController {
 		  for(Tag tag : image.getTags()) {
 			  tags.add(tag.getText());
 		  }
-		  photo.date = image.getCreatedDate();
+		  if(image.getArousal() == null || image.getValence() == null) {
+			  continue;
+		  }
+		  //photo.date = image.getCreatedDate();
 		  photo.tags = (String[]) tags.toArray(new String[tags.size()]);
 		  photo.arousal = image.getArousal();
 		  photo.valence = image.getValence();
 		  photo.lenght = image.getLenght();
 		  photo.emotion = image.getEmotion();
+		  if(photos.size() > 100) {
+			  return photos;
+		  }
 		  photos.add(photo);
 	  }
 	  return photos;
+  }
+  
+  @RequestMapping("/tags")
+  @CrossOrigin
+  public Iterable<Tag> getAllTags() {
+	  return tagDao.findAll();
+  }
+  
+  @RequestMapping("/tags/{emotion}")
+  @CrossOrigin
+  public Iterable<Tag> getTags(@PathVariable String emotion) {
+	  return tagDao.findByEmotion(emotion);
   }
   
 }

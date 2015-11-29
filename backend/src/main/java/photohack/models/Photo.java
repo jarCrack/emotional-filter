@@ -10,7 +10,7 @@ public class Photo {
 	public Double valence;
 	public Double lenght;
 	public String[] tags;
-	public Date date;
+	//public Date date;
 	public String emotion;
 	
 }
