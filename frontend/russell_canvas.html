@@ -1,5 +1,9 @@
 <html>
 <head>  
+
+<link href="assets/css/simple-timeline.css" rel="stylesheet">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
 <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
   <script type="text/javascript">
   window.onload = function () {
@@ -143,12 +147,69 @@ chart.render();
 <script type="text/javascript" src="assets/canvasjs.min.js"></script>
 </head>
 <body>
+
+
+
 	<!-- add the time line !-->
+	<button class="yselect" id="yprev">&lt;</button>
+	<p class="currentYear">0</p>
+	<button class="yselect" id="ynext">&gt;</button>
+	<div class="<a href="http://www.jqueryscript.net/time-clock/">date</a>Right">
+	<p class="currentDate">0</p>
+	</div>
+
+	<div id="timelineWrap">
+	<div class="months">
+	<div class="monthLine firstlast" style="left: 0px"></div>
+	<div class="monthLine" style="left: 70.833px"></div>
+	<div class="monthLine" style="left: 140.666px"></div>
+	<div class="monthLine" style="left: 210.999px"></div>
+	<div class="monthLine" style="left: 281.332px"></div>
+	<div class="monthLine" style="left: 351.665px"></div>
+	<div class="monthLine" style="left: 421.998px"></div>
+	<div class="monthLine" style="left: 492.331px"></div>
+	<div class="monthLine" style="left: 562.664px"></div>
+	<div class="monthLine" style="left: 632.997px"></div>
+	<div class="monthLine" style="left: 703.33px"></div>
+	<div class="monthLine" style="left: 773.663px"></div>
+	<div class="monthLine firstlast" style="left: 849px"></div>
+	</div>
+	</div>
 	
+	<div id="contentWrap">
+	  <div class="dbuttons">
+	    <button class="dselect" id="dprev"><</button>
+	  </div>
+	  <div class="tlcontainer" data-date="2012-03-12"> Event 1 </div>
+	  <div class="tlcontainer" data-date="2012-08-01"> Event 2 </div>
+	  <div class="tlcontainer" data-date="2012-10-08"> Event 3 </div>
+	  <div class="dbuttons">
+	    <button class ="dselect" id="dnext">></button>
+	  </div>
+	</div>
+
 
 
   <div id="chartContainer" style="height: 300px; width: 100%;">
   </div>
+
+<script language="javascript">
+$('.tlcontainer').simpleTimeline({
+
+content: $('div.tlcontainer'),
+hoverTrans: {
+  trans: 'fadeToggle',
+  transIn: 300,
+  transOut: 300,
+},
+startDate: 1,
+months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+});
+
+</script>
+<script src="assets/simple-timeline.jquery.js"></script>
+
 </body>
 </html>
 
